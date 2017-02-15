@@ -160,14 +160,14 @@
                                     <action selector="segmentedCardCash:" destination="K4F-ZU-goN" eventType="valueChanged" id="tgM-xw-k5I"/>
                                 </connections>
                             </segmentedControl>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="항목을 입력하세요." borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yaZ-xk-kG2">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="항목을 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yaZ-xk-kG2">
                                 <rect key="frame" x="16" y="271" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="금액을 입력하세요." borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Gr-6X-ibe">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="금액을 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Gr-6X-ibe">
                                 <rect key="frame" x="16" y="388" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -183,15 +183,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Save">
+                                <state key="normal" title="저장">
                                     <color key="titleColor" red="1" green="0.98913832810000002" blue="0.96882732640000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="savedButton:" destination="K4F-ZU-goN" eventType="touchUpInside" id="OPd-8M-KWy"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="메모를 남기세요." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k8s-lz-u69">
-                                <rect key="frame" x="16" y="439" width="343" height="107"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k8s-lz-u69">
+                                <rect key="frame" x="16" y="450" width="343" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -203,7 +203,17 @@
                                 <date key="date" timeIntervalSinceReferenceDate="508668394.61870301">
                                     <!--2017-02-13 08:46:34 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="datePickerChanged:" destination="K4F-ZU-goN" eventType="valueChanged" id="pA4-Fg-WIv"/>
+                                </connections>
                             </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Memo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pf-dV-3wS">
+                                <rect key="frame" x="16" y="431" width="48" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -211,6 +221,7 @@
                         <outlet property="categoryDetail" destination="yaZ-xk-kG2" id="yrm-CE-H3H"/>
                         <outlet property="categoryPicker" destination="z7q-ga-NVH" id="5Sa-sG-ZTB"/>
                         <outlet property="chooseCardCash" destination="aHl-I6-BbU" id="JWm-cw-yed"/>
+                        <outlet property="datePicker" destination="jnT-X0-bMv" id="tCe-WD-t54"/>
                         <outlet property="memo" destination="k8s-lz-u69" id="CuP-Rr-JQT"/>
                         <outlet property="money" destination="7Gr-6X-ibe" id="JQF-3r-iPm"/>
                         <outlet property="segmentedControl" destination="afa-6E-1yx" id="tJl-Iz-33G"/>
