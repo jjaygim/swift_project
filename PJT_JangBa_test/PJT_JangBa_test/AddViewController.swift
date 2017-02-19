@@ -16,6 +16,9 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     //빈칸 터치하면 글자 없어지게?
     //피커뷰 설정안하면 데이터 안잡힘
     //피커뷰 지출 로우 설정 안됨
+    
+    //수입 지출 적금 바꿀때마다 피커뷰 초기화하는 방법 (피커뷰 카테고리가 수입지출적금과 연동돼서 인덱스 따라 움직임)
+    //겟데이터 배열세트 !!딕셔너리로 컨트롤러에 만들기
  
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -25,17 +28,42 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     @IBOutlet weak var money: UITextField!
     @IBOutlet weak var memo: UITextView!
     
-    var jangba : JangBa
+    var jangba : Singleton
+    
+    var getData : [String: String]
+    
+    var dateIndex0 : String
+    var issIndex1 : String
+    var categoryIndex2:String
+    
+    let incomeCategory : [String]
+    let spendingCategory : [String]
+    let savingCategory : [String]
+    
+    var detailCIndex3 : String
+    var ccIndex4 : String
+    var moneyIndex5 : String
+    var memoIndex6 : String
     
     required init?(coder aDecoder: NSCoder) {
         //date1 = date1()
-        jangba = JangBa()
+        jangba = Singleton.sharedInstance
         jangba.dateFormatter.dateFormat = "yyyy.MM.dd"
         //jangba.dateFormatter.dateStyle = .short
-        jangba.dateIndex0 = jangba.dateFormatter.string(from: jangba.date)
-        jangba.issIndex1 = "수입"
-        jangba.categoryIndex2 = jangba.incomeCategory[0]
-        jangba.ccIndex4 = "카드"
+        
+        getData = [:]  //["0date":"","1iss":"","2category":"","3detailC":"","4cc":"","5money":"","6memo":""]
+        
+        incomeCategory = ["주수입","부수입","전월 이월"]
+        spendingCategory = ["식비", "주거/통신", "생활용품", "저축", "의복", "건강/문화", "육아/교육", "교통/차량", "세금", "경조사", "이자비용", "카드대금", "기타"]
+        savingCategory = ["예금","적금","기타"]
+        
+        dateIndex0 = jangba.dateFormatter.string(from: jangba.date)
+        issIndex1 = "수입"
+        categoryIndex2 = incomeCategory[0]
+        detailCIndex3 = ""
+        ccIndex4 = "카드"
+        moneyIndex5 = ""
+        memoIndex6 = ""
         
         super.init(coder: aDecoder)
     }
@@ -45,7 +73,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         categoryPicker.delegate = self
         super.viewDidLoad()
         
-        //memo = UITextView(frame: CGRect(x: 0, y: 0, width: 343, height: 107))
+        //memo = UITextView(frame: CGRect(x: 0, y: 0, width: 343, height: 107)) 인스턴스 새로 생성(아웃렛하고 또하면 안됨)
         memo.layer.cornerRadius = 5
         //memo.layer.borderColor = UIColor.gray as! CGColor
         //let grey = UIColor(colorLiteralRed: 100, green: 100, blue: 100, alpha: 1)
@@ -65,7 +93,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         //jangba.dateFormatter.dateStyle = .short
         jangba.dateFormatter.dateFormat = "yyyy.MM.dd"
         
-        jangba.dateIndex0 = jangba.dateFormatter.string(from: datePicker.date)
+        dateIndex0 = jangba.dateFormatter.string(from: datePicker.date)
         //jangba.getData.append(jangba.dateFormatter.string(from: datePicker.date))
         
     }
@@ -76,15 +104,15 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     func pickerView(_: UIPickerView, numberOfRowsInComponent: Int)->Int {
         if(segmentedControl.selectedSegmentIndex == 1)
         {
-            return jangba.spendingCategory.count
+            return spendingCategory.count
         }
         else if(segmentedControl.selectedSegmentIndex == 2)
         {
-            return jangba.savingCategory.count
+            return savingCategory.count
         }
         else
         {
-            return jangba.incomeCategory.count
+            return incomeCategory.count
         }
         
         
@@ -92,31 +120,37 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     func pickerView(_ pickerView: UIPickerView, titleForRow: Int, forComponent: Int) -> String? {
         if(segmentedControl.selectedSegmentIndex == 1)
         {
-            return jangba.spendingCategory[titleForRow]
+            return spendingCategory[titleForRow]
         }
         else if(segmentedControl.selectedSegmentIndex == 2)
         {
-            return jangba.savingCategory[titleForRow]
+            return savingCategory[titleForRow]
         }
         else
         {
-            return jangba.incomeCategory[titleForRow]
+            return incomeCategory[titleForRow]
         }
-        
+    }
+    
+    func selectRow(_ row: Int, inComponent component: Int, animated: Bool){
         
     }
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow: Int, inComponent: Int) {
         if(segmentedControl.selectedSegmentIndex == 1)
         {
-            jangba.categoryIndex2 = jangba.spendingCategory[didSelectRow]
+            categoryIndex2 = spendingCategory[didSelectRow]
+            //if didSelectRow == nil {
+              //  jangba.categoryIndex2 = jangba.spendingCategory[0]
+            //}
         }
         else if(segmentedControl.selectedSegmentIndex == 2)
         {
-            jangba.categoryIndex2 = jangba.savingCategory[didSelectRow]
+            categoryIndex2 = savingCategory[didSelectRow]
         }
         else
         {
-            jangba.categoryIndex2 = jangba.incomeCategory[didSelectRow]
+            categoryIndex2 = incomeCategory[didSelectRow]
         }
     }
 
@@ -128,33 +162,31 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
 
         if(segmentedControl.selectedSegmentIndex == 1)
         {
-            jangba.issIndex1 = "지출"
-            //jangba.getData.append("지출")
+            issIndex1 = "지출"
+            categoryIndex2 = spendingCategory[0]
         }
         else if(segmentedControl.selectedSegmentIndex == 2)
         {
-            jangba.issIndex1 = "저축"
-            //jangba.getData.append("저축")
+            issIndex1 = "저축"
+            categoryIndex2 = savingCategory[0]
         }
         else
         {
-            jangba.issIndex1 = "수입"
-            //jangba.getData.append("수입")
+            issIndex1 = "수입"
+            categoryIndex2 = incomeCategory[0]
         }
-        categoryPicker.reloadAllComponents()
+        categoryPicker.reloadAllComponents()  //*******
     }
   
     @IBAction func segmentedCardCash(_ sender: Any) {
         
         if(chooseCardCash.selectedSegmentIndex == 1)
         {
-            jangba.ccIndex4 = "현금"
-            //jangba.getData.append("현금")
+            ccIndex4 = "현금"
         }
         else
         {
-            jangba.ccIndex4 = "카드"
-            //jangba.getData.append("카드")
+            ccIndex4 = "카드"
         }
     }
     
@@ -162,30 +194,41 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     
     @IBAction func savedButton(_ sender: Any) {
         
-        jangba.detailCIndex3 = String(describing: categoryDetail.text)
-        jangba.moneyIndex5 = String(describing: money.text)
+        //var dataset = ["날짜":"","수지저":"","카테고리":"","세부카테고리":"","항목":"","카현":"","금액":"","메모":""]
+        
+        detailCIndex3 = String(describing: categoryDetail.text)
+        moneyIndex5 = String(describing: money.text)
         
         if let index6 = memo.text
             {
-            jangba.memoIndex6 = String(describing: memo.text)
+            memoIndex6 = String(describing: memo.text)
             }
         else
             {
-            jangba.memoIndex6 = ""
+            memoIndex6 = ""
             }
-    
-        jangba.getData.append(jangba.dateIndex0)
-        jangba.getData.append(jangba.issIndex1)
-        jangba.getData.append(jangba.categoryIndex2)
-        jangba.getData.append(jangba.detailCIndex3)
-        jangba.getData.append(jangba.ccIndex4)
-        jangba.getData.append(jangba.moneyIndex5)
-        jangba.getData.append(jangba.memoIndex6)
+        getData["0date"] = dateIndex0
+        getData["1iss"] = issIndex1
+        getData["2category"] = categoryIndex2
+        getData["3detailC"] = detailCIndex3
+        getData["4cc"] = ccIndex4
+        getData["5money"] = moneyIndex5
+        getData["6memo"] = memoIndex6
+
+        
+        //jangba.getData.append(jangba.dateIndex0)
+        //jangba.getData.append(jangba.issIndex1)
+        //jangba.getData.append(jangba.categoryIndex2)
+        //jangba.getData.append(jangba.detailCIndex3)
+        //jangba.getData.append(jangba.ccIndex4)
+        //jangba.getData.append(jangba.moneyIndex5)
+        //jangba.getData.append(jangba.memoIndex6)
+        
         //getData.append(String(describing: categoryDetail.text))
         //getData.append(String(describing: money.text))
         //getData.append(String(describing: memo.text))
         
-        jangba.allData.append(jangba.getData)
+        jangba.allData.append(getData)
         
         //self.navigationController?.popViewController(animated: true)
         
@@ -194,7 +237,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         }
         pop(animated: true)
         
-        print(jangba.getData)
+        print(getData)
         print(jangba.allData)
  
         

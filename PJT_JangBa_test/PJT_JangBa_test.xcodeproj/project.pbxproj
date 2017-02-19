@@ -15,6 +15,7 @@
 		F436D21E1E51978100A48F3E /* PJT_JangBa_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436D21D1E51978100A48F3E /* PJT_JangBa_testTests.swift */; };
 		F436D2291E5215B700A48F3E /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436D2281E5215B700A48F3E /* AddViewController.swift */; };
 		F436D22B1E542AF900A48F3E /* JangBaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436D22A1E542AF900A48F3E /* JangBaModel.swift */; };
+		F436D22D1E598BB500A48F3E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436D22C1E598BB500A48F3E /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		F436D21F1E51978100A48F3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F436D2281E5215B700A48F3E /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		F436D22A1E542AF900A48F3E /* JangBaModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JangBaModel.swift; sourceTree = "<group>"; };
+		F436D22C1E598BB500A48F3E /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				F436D2281E5215B700A48F3E /* AddViewController.swift */,
 				F436D20C1E51978100A48F3E /* Main.storyboard */,
 				F436D22A1E542AF900A48F3E /* JangBaModel.swift */,
+				F436D22C1E598BB500A48F3E /* Model.swift */,
 				F436D20F1E51978100A48F3E /* Assets.xcassets */,
 				F436D2111E51978100A48F3E /* LaunchScreen.storyboard */,
 				F436D2141E51978100A48F3E /* Info.plist */,
@@ -205,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F436D22D1E598BB500A48F3E /* Model.swift in Sources */,
 				F436D22B1E542AF900A48F3E /* JangBaModel.swift in Sources */,
 				F436D20B1E51978100A48F3E /* ViewController.swift in Sources */,
 				F436D2291E5215B700A48F3E /* AddViewController.swift in Sources */,

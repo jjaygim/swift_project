@@ -8,8 +8,11 @@
 
 import Foundation
 
-struct JangBa {
+class MySingleton {
+    static let sharedInstance = MySingleton()
     
+    //struct JangBa {
+        
     var allData:Array<Array<String>> = []
     var getData:Array<String> = []
     
@@ -32,5 +35,36 @@ struct JangBa {
     
     var memoIndex6 = ""
 
-    
+    private init() {}
 }
+
+/*
+ 
+class singleton {
+    static let sharedInstance = singleton()
+}
+
+
+ 
+ http://stackoverflow.com/questions/37379725/how-can-i-use-nscoding-with-a-singleton-class-in-swift
+ 
+ class MySingleton : NSObject {
+ class var sharedInstance: MySingleton {
+ struct Statics {
+ static var instance: MySingleton? = nil
+ static var dispatchOnceToken: dispatch_once_t = 0
+ }
+ 
+ dispatch_once(&Statics.dispatchOnceToken) {
+ if let data: NSData = .... (get your data here) {
+ let decodedInstance = NSKeyedUnarchiver.unarchiveObjectWithData(data: data) as! MySingleton
+ Statics.instance = decodedInstance
+ } else {
+ Statics.instance = MySingletion()
+ }
+ }
+ return Statics.instance!
+ }
+ }
+ 
+ */
