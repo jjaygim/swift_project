@@ -28,7 +28,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     @IBOutlet weak var money: UITextField!
     @IBOutlet weak var memo: UITextView!
     
-    var jangba : Singleton
+    //var jangba : Singleton
     
     var getData : [String: String]
     
@@ -47,8 +47,12 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     
     required init?(coder aDecoder: NSCoder) {
         //date1 = date1()
-        jangba = Singleton.sharedInstance
-        jangba.dateFormatter.dateFormat = "yyyy.MM.dd"
+        //jangba = Singleton.sharedInstance
+        Singleton.sharedInstance.dateFormatter.dateFormat = "yy.MM.dd"
+        
+        //Singleton.sharedInstance.yearFormatter.dateFormat = "yyyy"
+        //Singleton.sharedInstance.monthFormatter.dateFormat = "MM"
+        //Singleton.sharedInstance.dayFormatter.dateFormat = "dd"
         //jangba.dateFormatter.dateStyle = .short
         
         getData = [:]  //["0date":"","1iss":"","2category":"","3detailC":"","4cc":"","5money":"","6memo":""]
@@ -57,7 +61,10 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         spendingCategory = ["식비", "주거/통신", "생활용품", "저축", "의복", "건강/문화", "육아/교육", "교통/차량", "세금", "경조사", "이자비용", "카드대금", "기타"]
         savingCategory = ["예금","적금","기타"]
         
-        dateIndex0 = jangba.dateFormatter.string(from: jangba.date)
+        //dateIndex0 = Singleton.sharedInstance.dateFormatter.string(from: Singleton.sharedInstance.date)
+        dateIndex0 = Singleton.sharedInstance.dateFormatter.string(from: Singleton.sharedInstance.date)
+        dateIndex0 = Singleton.sharedInstance.dateFormatter.string(from: Singleton.sharedInstance.date)
+        dateIndex0 = Singleton.sharedInstance.dateFormatter.string(from: Singleton.sharedInstance.date)
         issIndex1 = "수입"
         categoryIndex2 = incomeCategory[0]
         detailCIndex3 = ""
@@ -91,9 +98,9 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     
     func setDate() {
         //jangba.dateFormatter.dateStyle = .short
-        jangba.dateFormatter.dateFormat = "yyyy.MM.dd"
+        //Singleton.sharedInstance.dateFormatter.dateFormat = "yy.MM.dd"
         
-        dateIndex0 = jangba.dateFormatter.string(from: datePicker.date)
+        dateIndex0 = Singleton.sharedInstance.dateFormatter.string(from: datePicker.date)
         //jangba.getData.append(jangba.dateFormatter.string(from: datePicker.date))
         
     }
@@ -196,9 +203,11 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         
         //var dataset = ["날짜":"","수지저":"","카테고리":"","세부카테고리":"","항목":"","카현":"","금액":"","메모":""]
         
-        detailCIndex3 = String(describing: categoryDetail.text)
-        moneyIndex5 = String(describing: money.text)
+        detailCIndex3 = categoryDetail.text!
+        moneyIndex5 = money.text!
+        memoIndex6 = memo.text!
         
+        /*
         if let index6 = memo.text
             {
             memoIndex6 = String(describing: memo.text)
@@ -207,6 +216,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
             {
             memoIndex6 = ""
             }
+         */
         getData["0date"] = dateIndex0
         getData["1iss"] = issIndex1
         getData["2category"] = categoryIndex2
@@ -228,7 +238,7 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         //getData.append(String(describing: money.text))
         //getData.append(String(describing: memo.text))
         
-        jangba.allData.append(getData)
+        Singleton.sharedInstance.allData.append(getData)
         
         //self.navigationController?.popViewController(animated: true)
         
@@ -238,7 +248,9 @@ class AddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
         pop(animated: true)
         
         print(getData)
-        print(jangba.allData)
+        print(Singleton.sharedInstance.allData)
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
  
         
     }

@@ -13,6 +13,9 @@ class Singleton {
     
     let date = Date()
     let dateFormatter = DateFormatter()
+    //let yearFormatter = DateFormatter()
+    //let monthFormatter = DateFormatter()
+    //let dayFormatter = DateFormatter()
     
     var allData:Array<[String:String]> = []
     

@@ -16,10 +16,19 @@
 		F436D2291E5215B700A48F3E /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436D2281E5215B700A48F3E /* AddViewController.swift */; };
 		F436D22B1E542AF900A48F3E /* JangBaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436D22A1E542AF900A48F3E /* JangBaModel.swift */; };
 		F436D22D1E598BB500A48F3E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436D22C1E598BB500A48F3E /* Model.swift */; };
+		F436D22F1E5ACD6000A48F3E /* FirstCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436D22E1E5ACD6000A48F3E /* FirstCustomCell.swift */; };
+		F436D2371E5BEA2100A48F3E /* PJT_JangBa_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436D2361E5BEA2100A48F3E /* PJT_JangBa_testUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		F436D21A1E51978100A48F3E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F436D1FD1E51978100A48F3E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F436D2041E51978100A48F3E;
+			remoteInfo = PJT_JangBa_test;
+		};
+		F436D2391E5BEA2100A48F3E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F436D1FD1E51978100A48F3E /* Project object */;
 			proxyType = 1;
@@ -42,6 +51,10 @@
 		F436D2281E5215B700A48F3E /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		F436D22A1E542AF900A48F3E /* JangBaModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JangBaModel.swift; sourceTree = "<group>"; };
 		F436D22C1E598BB500A48F3E /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		F436D22E1E5ACD6000A48F3E /* FirstCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCustomCell.swift; sourceTree = "<group>"; };
+		F436D2341E5BEA2100A48F3E /* PJT_JangBa_testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PJT_JangBa_testUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F436D2361E5BEA2100A48F3E /* PJT_JangBa_testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJT_JangBa_testUITests.swift; sourceTree = "<group>"; };
+		F436D2381E5BEA2100A48F3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +72,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F436D2311E5BEA2100A48F3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -67,6 +87,7 @@
 			children = (
 				F436D2071E51978100A48F3E /* PJT_JangBa_test */,
 				F436D21C1E51978100A48F3E /* PJT_JangBa_testTests */,
+				F436D2351E5BEA2100A48F3E /* PJT_JangBa_testUITests */,
 				F436D2061E51978100A48F3E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,6 +97,7 @@
 			children = (
 				F436D2051E51978100A48F3E /* PJT_JangBa_test.app */,
 				F436D2191E51978100A48F3E /* PJT_JangBa_testTests.xctest */,
+				F436D2341E5BEA2100A48F3E /* PJT_JangBa_testUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,11 +107,12 @@
 			children = (
 				F436D2081E51978100A48F3E /* AppDelegate.swift */,
 				F436D20A1E51978100A48F3E /* ViewController.swift */,
+				F436D22E1E5ACD6000A48F3E /* FirstCustomCell.swift */,
 				F436D2281E5215B700A48F3E /* AddViewController.swift */,
 				F436D20C1E51978100A48F3E /* Main.storyboard */,
-				F436D22A1E542AF900A48F3E /* JangBaModel.swift */,
 				F436D22C1E598BB500A48F3E /* Model.swift */,
 				F436D20F1E51978100A48F3E /* Assets.xcassets */,
+				F436D22A1E542AF900A48F3E /* JangBaModel.swift */,
 				F436D2111E51978100A48F3E /* LaunchScreen.storyboard */,
 				F436D2141E51978100A48F3E /* Info.plist */,
 			);
@@ -103,6 +126,15 @@
 				F436D21F1E51978100A48F3E /* Info.plist */,
 			);
 			path = PJT_JangBa_testTests;
+			sourceTree = "<group>";
+		};
+		F436D2351E5BEA2100A48F3E /* PJT_JangBa_testUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F436D2361E5BEA2100A48F3E /* PJT_JangBa_testUITests.swift */,
+				F436D2381E5BEA2100A48F3E /* Info.plist */,
+			);
+			path = PJT_JangBa_testUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +175,24 @@
 			productReference = F436D2191E51978100A48F3E /* PJT_JangBa_testTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		F436D2331E5BEA2100A48F3E /* PJT_JangBa_testUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F436D23D1E5BEA2100A48F3E /* Build configuration list for PBXNativeTarget "PJT_JangBa_testUITests" */;
+			buildPhases = (
+				F436D2301E5BEA2100A48F3E /* Sources */,
+				F436D2311E5BEA2100A48F3E /* Frameworks */,
+				F436D2321E5BEA2100A48F3E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F436D23A1E5BEA2100A48F3E /* PBXTargetDependency */,
+			);
+			name = PJT_JangBa_testUITests;
+			productName = PJT_JangBa_testUITests;
+			productReference = F436D2341E5BEA2100A48F3E /* PJT_JangBa_testUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -158,6 +208,11 @@
 						ProvisioningStyle = Automatic;
 					};
 					F436D2181E51978100A48F3E = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F436D2041E51978100A48F3E;
+					};
+					F436D2331E5BEA2100A48F3E = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F436D2041E51978100A48F3E;
@@ -179,6 +234,7 @@
 			targets = (
 				F436D2041E51978100A48F3E /* PJT_JangBa_test */,
 				F436D2181E51978100A48F3E /* PJT_JangBa_testTests */,
+				F436D2331E5BEA2100A48F3E /* PJT_JangBa_testUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -201,6 +257,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F436D2321E5BEA2100A48F3E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -213,6 +276,7 @@
 				F436D20B1E51978100A48F3E /* ViewController.swift in Sources */,
 				F436D2291E5215B700A48F3E /* AddViewController.swift in Sources */,
 				F436D2091E51978100A48F3E /* AppDelegate.swift in Sources */,
+				F436D22F1E5ACD6000A48F3E /* FirstCustomCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +288,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F436D2301E5BEA2100A48F3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F436D2371E5BEA2100A48F3E /* PJT_JangBa_testUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -231,6 +303,11 @@
 			isa = PBXTargetDependency;
 			target = F436D2041E51978100A48F3E /* PJT_JangBa_test */;
 			targetProxy = F436D21A1E51978100A48F3E /* PBXContainerItemProxy */;
+		};
+		F436D23A1E5BEA2100A48F3E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F436D2041E51978100A48F3E /* PJT_JangBa_test */;
+			targetProxy = F436D2391E5BEA2100A48F3E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -397,6 +474,30 @@
 			};
 			name = Release;
 		};
+		F436D23B1E5BEA2100A48F3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PJT_JangBa_testUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.PJT-JangBa-testUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = PJT_JangBa_test;
+			};
+			name = Debug;
+		};
+		F436D23C1E5BEA2100A48F3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PJT_JangBa_testUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.PJT-JangBa-testUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = PJT_JangBa_test;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -426,6 +527,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		F436D23D1E5BEA2100A48F3E /* Build configuration list for PBXNativeTarget "PJT_JangBa_testUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F436D23B1E5BEA2100A48F3E /* Debug */,
+				F436D23C1E5BEA2100A48F3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

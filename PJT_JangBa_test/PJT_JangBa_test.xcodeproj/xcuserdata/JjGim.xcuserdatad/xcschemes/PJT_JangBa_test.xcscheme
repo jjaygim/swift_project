@@ -38,6 +38,16 @@
                ReferencedContainer = "container:PJT_JangBa_test.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F436D2331E5BEA2100A48F3E"
+               BuildableName = "PJT_JangBa_testUITests.xctest"
+               BlueprintName = "PJT_JangBa_testUITests"
+               ReferencedContainer = "container:PJT_JangBa_test.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
